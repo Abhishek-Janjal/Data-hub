@@ -13,42 +13,42 @@
 
 -------------------------
 ##  Preprocessing
-#### Label Encoding
+>#### Label Encoding
 ```python
 from sklearn.preprocessing import LabelEncoder
 ```
-#### One Hot Encoding
+>#### One Hot Encoding
 ```python
 import pandas as pd
 pd.get_dummies(df['column'])
 ```
-#### Standard Scaler
+>#### Standard Scaler
 ```python
 from sklearn.preprocessing import StandardScaler
 ```
-#### Min-Max Scaler
+>#### Min-Max Scaler
 ```python
 from sklearn.preprocessing import MinMaxScaler
 ```
 -------------------------
 ## SAMPLING
 
-#### Hold out
+>#### Hold out
 ```python
 from sklearn.model_selection import train_test_split
 ```
 
-#### Leave One Out
+>#### Leave One Out
 ```python
 from sklearn.model_selection import LeaveOneOut
 ```
 
-#### K-Fold
+>#### K-Fold
 ```python
 from sklearn.model_selection import KFold
 ```
 
-#### Stratified K-Fold
+>#### Stratified K-Fold
 ```python
 from sklearn.model_selection import StratifiedKFold
 ```
