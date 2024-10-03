@@ -54,7 +54,7 @@ from sklearn.model_selection import StratifiedKFold
 ```
 -------------------------
 ## MODELING
-> ### REGRESSION
+### REGRESSION
 
 #### Linear Regression
 ```python
@@ -69,7 +69,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.svm import SVR
 ```
 
-> ### CLASSIFICATION
+### CLASSIFICATION
 #### Logistic Regression
 ```python
 from sklearn.linear_model import LogisticRegression
@@ -89,7 +89,7 @@ from sklearn.svm import SVC
 
 -------------------------
 ## Performance Metrics
-> ### REGRESSION
+### REGRESSION
 #### Mean Absolute Error (MAE)
 ```python
 from sklearn.metrics import mean_absolute_error
@@ -119,7 +119,7 @@ k=1
 adjusted_r2 = 1 - (1 - r2) * (n - 1) / (n - k - 1)
 ```
 
-> ### CLASSIFICATION
+### CLASSIFICATION
 #### Accuracy
 ```python
 from sklearn.metrics import accuracy_score
