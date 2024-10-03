@@ -56,33 +56,33 @@ from sklearn.model_selection import StratifiedKFold
 ## MODELING
 ### REGRESSION
 
-#### Linear Regression
+>#### Linear Regression
 ```python
 from sklearn.linear_model import LinearRegression
 ```
-#### Decision Tree
+>#### Decision Tree
 ```python
 from sklearn.tree import DecisionTreeRegressor
 ```
-#### Support Vector Machines
+>#### Support Vector Machines
 ```python
 from sklearn.svm import SVR
 ```
 
 ### CLASSIFICATION
-#### Logistic Regression
+>#### Logistic Regression
 ```python
 from sklearn.linear_model import LogisticRegression
 ```
-#### Naïve Bayes
+>#### Naïve Bayes
 ```python
 from sklearn.naive_bayes import GaussianNB,BernoulliNB,MultinomialNB
 ```
-#### Decision Tree
+>#### Decision Tree
 ```python
 from sklearn.tree import DecisionTreeClassifier
 ```
-#### Support Vector Machines
+>#### Support Vector Machines
 ```python
 from sklearn.svm import SVC
 ```
@@ -90,25 +90,25 @@ from sklearn.svm import SVC
 -------------------------
 ## Performance Metrics
 ### REGRESSION
-#### Mean Absolute Error (MAE)
+>#### Mean Absolute Error (MAE)
 ```python
 from sklearn.metrics import mean_absolute_error
 ```
-#### Mean Squared Error (MSE)
+>#### Mean Squared Error (MSE)
 ```python
 from sklearn.metrics import mean_squared_error
 ```
-#### Root Mean Squared Error (RMSE)
+>#### Root Mean Squared Error (RMSE)
 ```python
 from sklearn.metrics import mean_squared_error
 import numpy as np
 np.sqrt(mean_squared_error(y_test,y_pred))
 ```
-#### R-Squared
+>#### R-Squared
 ```python
 from sklearn.metrics import r2_score
 ```
-#### Adjusted R-squared
+>#### Adjusted R-squared
 ```python
 from sklearn.metrics import r2_score
 import numpy as np
