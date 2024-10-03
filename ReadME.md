@@ -34,21 +34,25 @@ from sklearn.preprocessing import MinMaxScaler
 ## SAMPLING
 
 >#### Hold out
+![](image/hold_one.jpeg)
 ```python
 from sklearn.model_selection import train_test_split
 ```
 
 >#### Leave One Out
+![](image/leave.png)
 ```python
 from sklearn.model_selection import LeaveOneOut
 ```
 
 >#### K-Fold
+![](image/k-fold.png)
 ```python
 from sklearn.model_selection import KFold
 ```
 
 >#### Stratified K-Fold
+![](image/stratified.png)
 ```python
 from sklearn.model_selection import StratifiedKFold
 ```
@@ -142,3 +146,5 @@ from sklearn.metrics import f1_score
 ```python
 from sklearn.metrics import roc_auc_score
 ```
+-------------------------
+
