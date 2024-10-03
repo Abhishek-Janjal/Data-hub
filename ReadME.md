@@ -120,25 +120,25 @@ adjusted_r2 = 1 - (1 - r2) * (n - 1) / (n - k - 1)
 ```
 
 ### CLASSIFICATION
-#### Accuracy
+>#### Accuracy
 ```python
 from sklearn.metrics import accuracy_score
 ```
-#### Precision and Recall
+>#### Precision and Recall
 ```python
 from sklearn.metrics import precision_score, recall_score
 ```
-#### Specificity
+>#### Specificity
 ```python
 from sklearn.metrics import confusion_matrix
 tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
 specificity = tn / (tn + fp)
 ```
-#### F1-score
+>#### F1-score
 ```python
 from sklearn.metrics import f1_score
 ```
-#### AUC-ROC
+>#### AUC-ROC
 ```python
 from sklearn.metrics import roc_auc_score
 ```
