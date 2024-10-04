@@ -72,12 +72,12 @@ print("""What is Bias?
 • The bias of the estimated function tells us the capacity of the underlying model to predict the values""")
 
 ```
-_Hello world_
-_Hello world_
-_Hello world_
-_What is Bias?_
-_• Error between average model prediction and ground truth_
-_• The bias of the estimated function tells us the capacity of the underlying model to predict the values_
+_Hello world_<br>
+_Hello world_<br>
+_Hello world_<br>
+_What is Bias?_<br>
+_• Error between average model prediction and ground truth_<br>
+_• The bias of the estimated function tells us the capacity of the underlying model to predict the values_<br>
 
 
 ```python
@@ -87,10 +87,10 @@ a=5.6
 print("sum:{}\nAverage:{}".format(s,a))
 print(f"sum:{s}\nAverage:{a}")
 ```
-_sum:57_
-_Average:5.6_
-_sum:57_
-_Average:5.6_
+_sum:57_<br>
+_Average:5.6_<br>
+_sum:57_<br>
+_Average:5.6_<br>
 
 
 ```python
@@ -190,8 +190,8 @@ print(f'a = {type(a)}')
 a=float(a)
 print(f'a = {type(a)}')
 ```
-_a = <class 'str'>
-a = <class 'int'>
+_a = <class 'str'><br>
+a = <class 'int'><br>
 a = <class 'float'>_
 # 10 .List, Tuple, Dictionary, Set
 ```python
@@ -214,7 +214,7 @@ ls2=[1,2,3]
 print(type(ls1))
 print(len(ls1))
 ```
-_<class 'list'>
+_<class 'list'><br>
 8_
 
 ```python
@@ -225,8 +225,8 @@ print(ls1[-1])
 #slicing
 print(ls1[1:4])
 ```
-_ram
-34
+_ram<br>
+34<br>
 [12, 23, 45.3]_
 
 ```python
@@ -235,13 +235,13 @@ l1.insert(3,[4,5])
 l1
 #list is insert at index 3
 ```
-_[1, 2, 3, [4, 5], 'hello', 34]_
+_[1, 2, 3, [4, 5], 'hello', 34]_<br>
 
 ```python
 l1.reverse()
 l1
 ```
-_[34, 'hello', [4, 5], 3, 2, 1]_
+_[34, 'hello', [4, 5], 3, 2, 1]_<br>
 
 ```python
 l1=[4,6,1,7,8,2,3]
@@ -263,7 +263,7 @@ tp1='john','green',3.3
 print(tp)
 print(tp1)
 ```
-('john', 'green', 3.3)
+('john', 'green', 3.3)<br>
 ('john', 'green', 3.3)
 
 
@@ -273,7 +273,7 @@ tp=('john','blue',[98,75,87])
 tp[2][1]=85
 tp
 ```
-_('john', 'blue', [98, 85, 87])_
+_('john', 'blue', [98, 85, 87])_<br>
 
 ```python
 # unpacking sequences
@@ -355,7 +355,7 @@ def my_function(country="Norway"):
 my_function('India')
 my_function()
 ```
-_I am from India_
+_I am from India_<br>
 _I am from Norway_
 ```python
 #The function will receive a tuple of arguments, and can access the items accordingly
@@ -386,7 +386,7 @@ dic={}
 for i in range(1,21):
   dic.update({i:i*i})
 ```
-_[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+_[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]<br>
 {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}_
 
 
