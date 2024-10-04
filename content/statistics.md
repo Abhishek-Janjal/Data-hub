@@ -131,10 +131,10 @@ _where:_
 The square root of the variance, representing the average distance of each data point from the mean.
 **Formulas:**
 - **Population Standard Deviation (σ):**
-##### $\sigma=\sqrt{\sigma^2}$
+### $\sigma=\sqrt{\sigma^2}$
 
 - **Sample Standard Deviation (s):**
-##### $s=\sqrt{s^2}$
+### $s=\sqrt{s^2}$
 
 ____________________________________________
 
