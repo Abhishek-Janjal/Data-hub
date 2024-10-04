@@ -70,9 +70,9 @@ _______________________________________
 The arithmetic average of all data points.
 
 **_Formula:_**
-### $\frac{\sum{x_i}}{n}$
+### $\frac{\sum{X_i}}{n}$
 _where:_
-- _$x_i$_ is ith observation, 1 ≤ i ≤ n
+- $X_i$ is ith observation, 1 ≤ i ≤ n
 - _n_ is Number of observations
 
 ### 2. Median
