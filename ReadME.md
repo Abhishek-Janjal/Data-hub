@@ -1,6 +1,6 @@
 ## Data Science
 
-1. [SQL]()
+1. [SQL](content/sql.md)
 2. [Python](content/python.md)
 3. [Python for Data Science]()
 4. [Statistics]()
