@@ -31,7 +31,7 @@ y=5
 Y=4
 print(y,Y)
 ```
-**_5 4_**
+_5 4_
 
 # 3. Data Types
 ```python 
@@ -43,9 +43,9 @@ print(type(a))
 print(type(b))
 print(type(c))
 ```
-**_<class 'int'>_**
-**_<class 'float'>_**
-**_<class 'str'>_**
+_<class 'int'>_
+_<class 'float'>_
+_<class 'str'>_
 
 # 4. Operators
 | Operators | code | output |
