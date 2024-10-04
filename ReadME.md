@@ -1,7 +1,7 @@
 ## Data Science
 
 1. [SQL]()
-2. [Python](content/python.ipynb)
+2. [Python](content/python.md)
 3. [Python for Data Science]()
 4. [Statistics]()
 5. Machine Learning
