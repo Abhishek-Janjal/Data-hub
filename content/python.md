@@ -43,8 +43,8 @@ print(type(a))
 print(type(b))
 print(type(c))
 ```
-_<class 'int'>_
-_<class 'float'>_
+_<class 'int'>_<br>
+_<class 'float'>_<br>
 _<class 'str'>_
 
 # 4. Operators
