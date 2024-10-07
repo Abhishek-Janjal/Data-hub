@@ -16,7 +16,7 @@ ___________________________________
 
 Statistics can be broadly classified into two types:
 
-### 1. [Descriptive Statistics](content/descriptive.md)
+### 1. [Descriptive Statistics](descriptive.md)
 
 Descriptive statistics summarizes and describes the features of a dataset. It helps in understanding the basic characteristics of the data through numerical summaries, graphs, and charts.
 
@@ -59,83 +59,6 @@ ___________________________________
 | **Data Collection**    | More complex, costly, and time-consuming| Easier, less expensive, and faster      |
 | **Comprehensiveness**  | Includes all members                    | Includes only selected members          |
 | **Example**            | All employees in a company              | 100 employees selected for a survey     |
-_______________________________________
-# Measures of Central Tendency
-
-**Measures of Central Tendency** are statistical metrics that describe the center or typical value of a dataset. They summarize data with a single value that represents the middle or center of its distribution.
-
-## Types of Central Tendency
-
-### 1. Mean
-The arithmetic average of all data points.
-
-**_Formula:_**
-### $\frac{\sum{X_i}}{n}$
-_where:_
-- $X_i$ is ith observation, 1 ≤ i ≤ n
-- _n_ is Number of observations
-
-### 2. Median
-The middle value in a sorted dataset. If the number of observations is even, the median is the average of the two middle numbers.
-
-**_Formula:_**
-
-_For Even_
-$M=(\frac{n+1}{2})^{th}$
-
-_For Odd_
-$M=\frac{(\frac{n}{2})^{th}+(\frac{n}{2}+1)^{th}}{2}$
-
-_where:_
-- _n_ is Number of observations
-
-### 3. Mode
-The value that appears most frequently in the dataset.
-
-
-## Summary
-
-- **Mean:** Best for data without extreme outliers, sensitive to outliers.
-- **Median:** Best for skewed data or data with outliers.
-- **Mode:** Best for categorical data or identifying the most frequent value.
-
-_________________________________________________
-# Measures of Dispersion
-
-<p align="center">
-  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230810105933/measure-of-depression.png" alt="Measures of Dispersion"/>
-</p>
-
-
-**Measures of Dispersion** quantify the spread or variability within a dataset. They provide insights into how much the data points differ from the central tendency measures (like the mean or median).
-
-## 1. Variance
-
-The average of the squared differences between each data point and the mean.
-**Formulas:**
-- **Population Variance (σ²):**
-$$\sigma^2=\frac{\sum(X_i - \mu)^2}{N}$$
-
-- **Sample Variance (s²):**
-$$s^2=\frac{\sum(X_i - \bar{X})^2}{n-1}$$ 
-
-_where:_
-- $X_i$ = each data point
-- $\mu$ = population mean
-- $\bar{X}$ = sample mean
-- $N$ = size of the population
-- $n$ = size of the sample
-
-## 2. Standard Deviation
-
-The square root of the variance, representing the average distance of each data point from the mean.
-**Formulas:**
-- **Population Standard Deviation (σ):**
-### $\sigma=\sqrt{\sigma^2}$
-
-- **Sample Standard Deviation (s):**
-### $s=\sqrt{s^2}$
-
 ____________________________________________
 
 # Variable in Statistics
