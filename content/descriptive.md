@@ -105,7 +105,7 @@ A **histogram** is a graphical representation of the distribution of a dataset. 
 ## 3. Box plot
 **Box plots** are used to show distributions of numeric data values, especially when you want to compare them between multiple groups. They are built to provide high-level information at a glance, offering general information about a group of data’s symmetry, skew, variance, and outliers.
 
-![image](https://wac-cdn.atlassian.com/dam/jcr:3ecc2cdd-2878-4b9f-a853-f0d1782ad285/box-plot-construction.png?cdnVersion=2302)
+![image]([https://wac-cdn.atlassian.com/dam/jcr:3ecc2cdd-2878-4b9f-a853-f0d1782ad285/box-plot-construction.png?cdnVersion=2302](https://help.ezbiocloud.net/wp-content/uploads/2020/04/스크린샷-2020-04-19-오전-9.41.35.png))
 
 ### Quartiles
 - **Quartiles** divide data into four equal parts:
