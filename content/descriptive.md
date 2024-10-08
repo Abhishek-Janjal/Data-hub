@@ -118,7 +118,7 @@ A **histogram** is a graphical representation of the distribution of a dataset. 
 
 **Covariance and correlation** are two statistical measures used to determine the relationship between two variables. Both are used to understand how changes in one variable are associated with changes in another variable.
 
-#### Covariance
+### Covariance
 **Covariance** is a measure of how much two random variables change together. If the variables tend to increase and decrease together, the covariance is positive. If one tends to increase when the other decreases, the covariance is negative.
 
 $$Cov(X,Y)=\frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{N-1}$$
@@ -130,12 +130,12 @@ _where:_
 - $\bar{y}$ = Mean of y
 - $N$ = Number of data value
 
-#### Correlation
+### Correlation
 **Correlation** refers to the statistical relationship between the two entities. It measures the extent to which two variables are linearly related.
 
 
 
-#### A. Pearson correlation coefficient
+### A. Pearson correlation coefficient
 The **Pearson correlation coefficient** (r) is the most common way of measuring a linear correlation. It is a number between 
 –1 and 1 that measures the strength and direction of the relationship between two variables.
 
@@ -145,7 +145,7 @@ _where:_
 - $\sigma_x$ = Standard deviation of X
 - $\sigma_y$ = Standard deviation of Y
 
-#### B. Spearman's rank correlation coefficient
+### B. Spearman's rank correlation coefficient
 **Spearman’s rank correlation** measures the strength and direction of association between two ranked variables. It basically gives the measure of monotonicity of the relation between two variables i.e. how well the relationship between two variables could be represented using a monotonic function.
 
 $$\rho=1-\frac{6\sum d_i^2}{n(n^2-1)}$$
