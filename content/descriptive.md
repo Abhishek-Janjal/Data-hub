@@ -149,6 +149,7 @@ _where:_
 **Spearman’s rank correlation** measures the strength and direction of association between two ranked variables. It basically gives the measure of monotonicity of the relation between two variables i.e. how well the relationship between two variables could be represented using a monotonic function.
 
 $$\rho=1-\frac{6\sum d_i^2}{n(n^2-1)}$$
+
 _where:_
 - $d_i$ = Difference between the ranks of corresponding variables
 - $n$ = Number of Observations
