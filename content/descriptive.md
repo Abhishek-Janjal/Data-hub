@@ -141,14 +141,14 @@ The **Pearson correlation coefficient** (r) is the most common way of measuring 
 
 $$Corr(X,Y)=\frac{Cov(X,Y)}{\sigma_x \sigma_y}$$
 
-_where:
-$\sigma_x$ = Standard deviation of X
-$\sigma_y$ = Standard deviation of Y_
+_where:_
+- $\sigma_x$ = Standard deviation of X
+- $\sigma_y$ = Standard deviation of Y
 
 #### B. Spearman's rank correlation coefficient
 **Spearman’s rank correlation** measures the strength and direction of association between two ranked variables. It basically gives the measure of monotonicity of the relation between two variables i.e. how well the relationship between two variables could be represented using a monotonic function.
 
 $$\rho=1-\frac{6\sum d_i^2}{n(n^2-1)}$$
-_where
-$d_i$ = Difference between the ranks of corresponding variables
-$n$ = Number of Observations_
+_where:_
+- $d_i$ = Difference between the ranks of corresponding variables
+- $n$ = Number of Observations
