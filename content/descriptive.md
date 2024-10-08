@@ -123,12 +123,12 @@ A **histogram** is a graphical representation of the distribution of a dataset. 
 
 $$Cov(X,Y)=\frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{N-1}$$
 
-_where:
-$x_i$ = Data value of x
-$y_i$ = Data value of y
-$\bar{x}$ = Mean of x
-$\bar{y}$ = Mean of y
-$N$ = Number of data value_
+_where:_
+- $x_i$ = Data value of x
+- $y_i$ = Data value of y
+- $\bar{x}$ = Mean of x
+- $\bar{y}$ = Mean of y
+- $N$ = Number of data value
 
 #### Correlation
 **Correlation** refers to the statistical relationship between the two entities. It measures the extent to which two variables are linearly related.
