@@ -105,7 +105,7 @@ A **histogram** is a graphical representation of the distribution of a dataset. 
 ## 3. Box plot
 **Box plots** are used to show distributions of numeric data values, especially when you want to compare them between multiple groups. They are built to provide high-level information at a glance, offering general information about a group of data’s symmetry, skew, variance, and outliers.
 
-![image](https://help.ezbiocloud.net/wp-content/uploads/2020/04/스크린샷-2020-04-19-오전-9.41.35.png)
+![image](image/boxplot.png)
 
 ### Quartiles
 - **Quartiles** divide data into four equal parts:
@@ -123,7 +123,7 @@ A **histogram** is a graphical representation of the distribution of a dataset. 
 
 $$Cov(X,Y)=\frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{N-1}$$
 
-_where:_
+_where:_ 
 - $x_i$ = Data value of x
 - $y_i$ = Data value of y
 - $\bar{x}$ = Mean of x
