@@ -89,13 +89,13 @@ insight into the shape and nature of a dataset’s distribution.
 
 A **histogram** is a graphical representation of the distribution of a dataset. It displays data using bars of different heights, where each bar groups numbers into ranges (bins).
 
-## Key Features
+### Key Features
 
 - **Bins**: The intervals that represent the range of data values.
 - **Height of Bars**: Indicates the frequency (count) of data points within each bin.
 - **Continuous Data**: Histograms are used primarily for continuous data.
 
-## Interpretation
+### Interpretation
 - **Shape**: The overall shape (e.g., symmetrical, skewed) provides insight into the distribution.
 - **Central Tendency**: The location of the peak(s) gives an idea of where most data points are concentrated.
 - **Spread**: The width of the histogram shows the variability in the data.
@@ -103,3 +103,52 @@ A **histogram** is a graphical representation of the distribution of a dataset. 
 ![image](https://github.com/user-attachments/assets/433df3e1-32e5-4f69-adf1-3ba55e971f72)
 
 ## 3. Box plot
+**Box plots** are used to show distributions of numeric data values, especially when you want to compare them between multiple groups. They are built to provide high-level information at a glance, offering general information about a group of data’s symmetry, skew, variance, and outliers.
+
+![image](https://wac-cdn.atlassian.com/dam/jcr:3ecc2cdd-2878-4b9f-a853-f0d1782ad285/box-plot-construction.png?cdnVersion=2302)
+
+### Quartiles
+- **Quartiles** divide data into four equal parts:
+  - **Q1 (1st Quartile)**: The 25th percentile.
+  - **Q2 (2nd Quartile)**: The 50th percentile, also the median.
+  - **Q3 (3rd Quartile)**: The 75th percentile.
+- **Interquartile Range (IQR)**: The difference between Q3 and Q1, representing the middle 50% of the data.
+
+## 4. Covariance and Correlation
+
+**Covariance and correlation** are two statistical measures used to determine the relationship between two variables. Both are used to understand how changes in one variable are associated with changes in another variable.
+
+#### Covariance
+**Covariance** is a measure of how much two random variables change together. If the variables tend to increase and decrease together, the covariance is positive. If one tends to increase when the other decreases, the covariance is negative.
+
+$$Cov(X,Y)=\frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{N-1}$$
+
+_where:
+$x_i$ = Data value of x
+$y_i$ = Data value of y
+$\bar{x}$ = Mean of x
+$\bar{y}$ = Mean of y
+$N$ = Number of data value_
+
+#### Correlation
+**Correlation** refers to the statistical relationship between the two entities. It measures the extent to which two variables are linearly related.
+
+
+
+#### A. Pearson correlation coefficient
+The **Pearson correlation coefficient** (r) is the most common way of measuring a linear correlation. It is a number between 
+–1 and 1 that measures the strength and direction of the relationship between two variables.
+
+$$Corr(X,Y)=\frac{Cov(X,Y)}{\sigma_x \sigma_y}$$
+
+_where:
+$\sigma_x$ = Standard deviation of X
+$\sigma_y$ = Standard deviation of Y_
+
+#### B. Spearman's rank correlation coefficient
+**Spearman’s rank correlation** measures the strength and direction of association between two ranked variables. It basically gives the measure of monotonicity of the relation between two variables i.e. how well the relationship between two variables could be represented using a monotonic function.
+
+$$\rho=1-\frac{6\sum d_i^2}{n(n^2-1)}$$
+_where
+$d_i$ = Difference between the ranks of corresponding variables
+$n$ = Number of Observations_
