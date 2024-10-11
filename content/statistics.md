@@ -32,7 +32,7 @@ Descriptive statistics summarizes and describes the features of a dataset. It he
 - **Standard Deviation:** A measure of the amount of variation or dispersion in a set of values.
 - **Histogram:** A graphical representation of the distribution of data.
 
-### 2. Inferential Statistics
+### 2. [Inferential Statistics](inferential.md)
 
 Inferential statistics uses a random sample of data taken from a population to describe and make inferences about the population. It allows us to make predictions or generalizations about a population based on a sample.
 
