@@ -1,44 +1,57 @@
 # Numpy
 
+## Numpy Array
 ```python
 import numpy as np
+l1=[1,2,3]
+myarr=np.array(l1)
 ```
 
 
-l1=[1,2,3]
-myarr=np.array(l1)
-
+## Change Data Type
+```python
 myarr=np.array(l1,dtype=float)
 myarr
-
+```
+## Method of Numpy
+```python
 print("my array size is",myarr.size)
 print("my array type is ",myarr.dtype)
 print("my array deminision is ",myarr.ndim)
 print("my array shape is ",myarr.shape)
-
+```
+## Identity Matrix
+```python
 myarr=np.identity(3)
 myarr
 
 print("my array deminision is ",myarr.ndim)
 print("my array shape is ",myarr.shape)
-
+```
+## arange method for Sequence series
+```python
 np.arange(1,101)
-
+```
+## Random numbers
+```python
+# number between 0 to 1
 np.random.random(size=3) # 0-1
 
+# Integer number between the give numbers
 np.random.randint(1,7,size=1)
+```
 
-### Boolean_indexing
-
+## Boolean_indexing
+```python
 np.random.seed(7)
 arr=np.random.randint(30,size=10)
-
 arr
-
+```
+```python
 arr>10
 
 arr[arr>10]
-
+```
 np.where(arr>10)
 
 arr[(arr>20) & (arr<30)]
