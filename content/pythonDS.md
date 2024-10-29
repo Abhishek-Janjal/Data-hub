@@ -91,34 +91,29 @@ np.eye(5)
 np.zeros((5,5))
 ```
 ## Reshape
-
-
+```python
 l1=[1,2,3]
 l2=[4,5,6]
 
-
 arr=np.array([l1,l2])
 
-arr.shape
+print(arr.shape)
 
-arr
-
+print(arr)
+```
+```python
 arr.reshape(3,2,order="C") # F is for column and C is rows
-
-ls=[[1, 2, 3],[4, 5, 6]]
-
-ls[:]
-
 arr
+```
 
-arr[1,1:3]
-
-### Transpose
-
+## Transpose
+```python
 np.transpose(arr)
 
+#or
 
 arr.T
+```
 
 # pandas Series
 
