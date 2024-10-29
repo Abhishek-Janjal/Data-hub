@@ -52,35 +52,45 @@ arr>10
 
 arr[arr>10]
 ```
+## Index value
+```python
 np.where(arr>10)
-
+```
+## bitwise operator
+```python
 arr[(arr>20) & (arr<30)]
 
 arr[np.where((arr>20) & (arr<30))]
-
-### copy, delete, append, insert,sort & flip method
-
+```
+## copy, delete, append, insert,sort & flip method
+```python
 b=np.copy(arr)
-
 b
-
+```
+```python
 np.delete(b,[1,2])
-
+```
+```python
 np.append(b,[10,11,12])
-
+```
+```python
 np.insert(b,4,[33])
-
+```
+```python
 np.flip(np.sort(b))
-
-### identity & zero matrix
-
+```
+## identity & zero matrix
+```python
 np.identity(5)
 
+#or
+
 np.eye(5)
-
+```
+```python
 np.zeros((5,5))
-
-### Reshape
+```
+## Reshape
 
 
 l1=[1,2,3]
