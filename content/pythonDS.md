@@ -116,35 +116,52 @@ arr.T
 ```
 
 # pandas Series
-
-import pandas as pd
+## importing pandas Library
+```python
 import numpy as np
-
+import pandas as pd
+```
+## empty series
+```python
 pd.Series()
-
+```
+## Series Example
+```python
 pd.Series(['A','B','C'],index=np.arange(1,4))
-
+```
+## Series using Dictionary
+```python
 dic={1:'A',2:'B',3:'C'}
 ser=pd.Series(dic)
-
+```
+## Sorting values
+```python
 ser.sort_values(ascending=False)
-
+```
+## Sorting index
+```python
 ser.sort_index()
-
+```
+## Some methods of Series
+```python
 dic={'a1':36,'a2':13,'a3':30,'a4':36,'a5':46}
 ser=pd.Series(dic)
-
+```
+```python
 ser.mean()
-
+```
+```python
 ser.sum()
-
+```
+```python
 ser.between(30,40)
-
+```
+## Droping 
+```python
 ser.drop('a5',inplace=True)
-
 ser
-
-## Pandas DataFrame
+```
+# Pandas DataFrame
 
 import pandas as pd
 
