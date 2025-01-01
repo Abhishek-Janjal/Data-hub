@@ -6,302 +6,520 @@ Structured Query Language (SQL) is a powerful and widely used language for manag
 
 A database is an organized collection of data stored in a structured format. It consists of tables, which hold the data, and relationships between the tables. Each table consists of rows (also known as records) and columns (also known as fields). Columns define the type of data that can be stored, such as text, numbers, or dates.
 
-### SQL Statements
+## Normalisation
 
-SQL operates through various statements that allow you to perform different actions on the database. The most common SQL statements are:
+Normalisation is **the process to eliminate data redundancy and enhance data integrity in the table.**
 
-- **SELECT**: Retrieves data from one or more tables.
-- **INSERT**: Adds new data into a table.
-- **UPDATE**: Modifies existing data in a table.
-- **DELETE**: Removes data from a table.
+### 1NF (First Normal Form) Rules
 
-### Syntax and Structure
+- Each table cell should contain a single value.
+- No multivalued value, e.g., Phone number.
+- Each record needs to be unique.
+- No repeating columns, e.g., phone number.
 
-SQL statements follow a specific syntax and structure. Here's a basic structure of a SELECT statement:
+### 2NF (Second Normal Form) Rules
+
+- Rule 1: Be in 1NF.
+- No partial dependency. All the non-prime attributes should be fully dependent on the candidate key.
+
+### 3NF (Third Normal Form) Rules
+
+- Tables should be in 1NF and 2NF.
+- No transitive dependency: all fields must only be determinable by the primary/composite key, not by other keys. (Occurs when we can guess any value of a column from any non-key column.)
+
+
+
+### Creating a Database
+```sql
+CREATE DATABASE IF NOT EXISTS niit;
+```
+This command creates a database named `niit` if it does not already exist.
+
+### Creating Tables
+```sql
+CREATE TABLE niit.student (
+    stu_id INT,
+    stu_name VARCHAR(100),
+    stu_address VARCHAR(100)
+);
+```
+Defines a table `student` in the `niit` database with the following columns:
+- `stu_id`: Integer
+- `stu_name`: String up to 100 characters
+- `stu_address`: String up to 100 characters
 
 ```sql
-SELECT column1, column2, ...
-FROM table_name
-WHERE condition;
+USE niit; -- Selects the niit database
+
+CREATE TABLE niit.student1 (
+    stu_id INT,
+    stu_name VARCHAR(100),
+    stu_address VARCHAR(100)
+);
 ```
+Creates another table `student1` in the `niit` database.
 
-- `SELECT` specifies the columns you want to retrieve from the table.
-- `FROM` specifies the table you want to retrieve data from.
-- `WHERE` (optional) specifies the conditions for filtering the data.
+### Adding a Column
+```sql
+ALTER TABLE niit.student1 ADD age INT;
+```
+Adds a new column `age` of type Integer to the `student1` table.
 
-### Querying Data
+### Removing a Column
+```sql
+ALTER TABLE student1 DROP age;
+```
+Removes the `age` column from the `student1` table.
 
-To retrieve data from a database, you use the SELECT statement. You can specify the columns you want to retrieve and apply various conditions to filter the data. Here's an example of a simple SELECT statement:
+### Modifying Column Data Types
+```sql
+ALTER TABLE student1 MODIFY stu_address VARCHAR(200);
+```
+Changes the data type of the `stu_address` column in the `student1` table to `VARCHAR(200)`.
 
 ```sql
-SELECT column1, column2
-FROM table_name;
+ALTER TABLE student_details 
+MODIFY COLUMN stu_name CHAR(30), 
+MODIFY full_address VARCHAR(100);
 ```
+Allows modification of multiple columns at once:
+- Changes `stu_name` to `CHAR(30)`.
+- Changes `full_address` to `VARCHAR(100)`.
 
-This statement retrieves the values from `column1` and `column2` in the `table_name` table.
-
-### Filtering Data
-
-You can filter the retrieved data using the WHERE clause. It allows you to specify conditions to match specific records. For example:
-
+### Renaming Table
 ```sql
-SELECT column1, column2
-FROM table_name
-WHERE condition;
+ALTER TABLE student1 RENAME student_details;
 ```
+Renames the table `student1` to `student_details`.
 
-The `condition` can be a comparison between columns or values using operators like `=`, `<>`, `<`, `>`, `<=`, `>=`. You can also use logical operators like `AND`, `OR`, `NOT` to combine multiple conditions.
-
-### Sorting Data
-
-You can sort the retrieved data using the ORDER BY clause. It allows you to specify the columns to sort the data by. For example:
-
+### Renaming Columns
 ```sql
-SELECT column1, column2
-FROM table_name
-ORDER BY column1 ASC, column2 DESC;
+ALTER TABLE student_details RENAME COLUMN stu_address TO full_address;
 ```
-
-This statement sorts the data in ascending order based on `column1` and descending order based on `column2`.
-
-## Modifying Data
-
-In addition to retrieving data, SQL allows you to modify the data stored in a database. This section covers the basic SQL statements for inserting, updating, and deleting data, and explains their impact on the database.
+Renames the column `stu_address` to `full_address` in the `student_details` table.
 
 ### Inserting Data
-
-To add new data into a table, you use the INSERT statement. Here's an example:
-
 ```sql
-INSERT INTO table_name (column1, column2, ...)
-VALUES (value1, value2, ...);
+INSERT INTO student_details VALUES
+(101, "Atul", "delhi"),
+(103, "disha", "delhi"),
+(102, "neha", "delhi");
 ```
+Inserts multiple rows into the `student_details` table.
 
-This statement inserts a new row into `table_name` with the specified values for `column1`, `column2`, and so on.
-
-### Updating Data
-
-The UPDATE statement is used to modify existing data in a table. Here's an example:
-
+### Displaying Data
 ```sql
-UPDATE table_name
-SET column1 = value1, column2 = value2, ...
-WHERE condition;
+SELECT * FROM student_details;
 ```
+Retrieves and displays all the data from the `student_details` table.
 
-This statement updates the values of `column1`, `column2`, and so on in `table_name` that match the specified condition.
-
-### Deleting Data
-
-To remove data from a table, you use the DELETE statement. Here's an example:
-
+### Cloning Tables and Copying Data
 ```sql
-DELETE FROM table_name
-WHERE condition;
+CREATE TABLE IF NOT EXISTS student_bk LIKE student_details;
+INSERT student_bk SELECT * FROM student_details WHERE stu_id < 103;
+USE niit;
+DESC student_bk; -- Displays the table structure
+TRUNCATE TABLE student_bk; -- Deletes data but retains structure
+SELECT * FROM student_bk;
 ```
+Creates a backup table and inserts selected data from `student_details`.
 
-This statement deletes the rows from `table_name` that match the specified condition.
-
-**Note:** Modifying data in a database should be done with caution, as it can permanently alter or remove data. Always double-check your statements and ensure they are targeting the correct data before executing them.
-
-## Data Types and Constraints
-
-SQL supports various data types to store different kinds of data in tables. Additionally, you can apply constraints to enforce rules and maintain data integrity. Here are some commonly used data types and constraints:
-
-### Data Types
-
-- **INTEGER**: Represents whole numbers.
-- **FLOAT**: Represents floating-point numbers.
-- **VARCHAR**: Represents variable-length character strings.
-- **DATE**: Represents a date without a time component.
-- **BOOLEAN**: Represents true or false values.
-
-These are just a few examples, and different database systems may support additional data types.
+### Managing Databases
+```sql
+CREATE DATABASE niit1;
+DROP DATABASE niit1; -- Deletes the database
+```
+Creates and deletes a database.
 
 ### Constraints
-
-- **Primary Key**: Ensures the uniqueness of a column's value in a table, typically used to uniquely identify each row.
-- **Foreign Key**: Establishes a relationship between two tables, enforcing referential integrity.
-- **Unique Constraint**: Ensures the uniqueness of values in one or more columns.
-- **Check Constraint**: Defines a condition that must be true for a row to be valid.
-
-These constraints help maintain data integrity, enforce data relationships, and prevent invalid data from being inserted or modified.
-
-Understanding data types and constraints is crucial for designing and creating well-structured databases that accurately represent the real-world entities and relationships.
-
-*This section has covered the basics of modifying data in a database using SQL statements. It has also introduced data types and constraints that help define the structure and integrity of the data.*
-
-*As you progress, you'll explore more advanced techniques and features of SQL, including working with multiple tables, aggregating data, and optimizing query performance.*
-
-## Joins and Relationships
-
-In a relational database, data is often spread across multiple tables, and relationships are established between them. Understanding relationships and using JOIN statements allows you to retrieve related data from multiple tables efficiently.
-
-### Relationships in Databases
-
-There are three common types of relationships in databases:
-
-- **One-to-One**: A relationship where each record in one table is associated with at most one record in another table.
-- **One-to-Many**: A relationship where each record in one table can be associated with multiple records in another table.
-- **Many-to-Many**: A relationship where records in both tables can be associated with multiple records in the other table.
-
-Establishing proper relationships between tables helps organize and structure the data effectively.
-
-### JOIN Statements
-
-JOIN statements are used to combine rows from different tables based on related columns. Here are the main types of JOINs:
-
-- **INNER JOIN**: Retrieves rows that have matching values in both tables being joined.
-- **LEFT JOIN**: Retrieves all rows from the left table and matching rows from the right table (if any).
-- **RIGHT JOIN**: Retrieves all rows from the right table and matching rows from the left table (if any).
-- **FULL JOIN**: Retrieves all rows from both tables, including matching and non-matching rows.
-
-JOIN statements allow you to fetch data from multiple tables, leveraging the relationships established between them.
-
-## Aggregation and Grouping
-
-Aggregation functions in SQL, such as SUM, AVG, COUNT, and others, enable you to summarize and calculate values from a set of rows. The GROUP BY clause is used in conjunction with these functions to group rows based on one or more columns.
-
-### Aggregating Data
-
-Aggregate functions perform calculations on a set of rows and return a single result. For example:
-
-- **SUM**: Calculates the sum of a column's values.
-- **AVG**: Calculates the average of a column's values.
-- **COUNT**: Returns the number of rows in a group.
-- **MIN**: Retrieves the minimum value from a column.
-- **MAX**: Retrieves the maximum value from a column.
-
-These functions allow you to derive meaningful insights and statistical calculations from your data.
-
-### Grouping Data
-
-The GROUP BY clause is used to group rows based on one or more columns. It allows you to divide the data into logical subsets and apply aggregate functions to each group individually. For example:
-
 ```sql
-SELECT column1, aggregate_function(column2)
-FROM table_name
-GROUP BY column1;
+CREATE DATABASE IF NOT EXISTS school;
+DROP DATABASE school;
+CREATE DATABASE IF NOT EXISTS school_data;
+```
+Defines database creation and removal for constraint examples.
+
+#### Primary Key, Unique, and Not Null Constraints
+```sql
+CREATE TABLE school_data.student_data(
+    student_roll_no INT PRIMARY KEY, 
+    name VARCHAR(100) NOT NULL UNIQUE,
+    age INT
+);
+```
+Defines a table with `PRIMARY KEY`, `UNIQUE`, and `NOT NULL` constraints.
+
+#### Foreign Key Constraints
+```sql
+CREATE DATABASE IF NOT EXISTS shop;
+CREATE TABLE shop.customer_data(
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50) NOT NULL,
+    address VARCHAR(50)
+);
+CREATE TABLE shop.orders(
+    order_id INT PRIMARY KEY,
+    order_name VARCHAR(60) NOT NULL,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES shop.customer_data(customer_id)
+);
+```
+Defines relationships between tables using foreign keys.
+
+### Inserting Data with Constraints
+```sql
+INSERT INTO school_data.student_data VALUES (101, "adam", 13);
+```
+Inserts data adhering to constraints.
+
+### Using Check Constraints
+```sql
+CREATE TABLE Persons (
+    ID INT NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    FirstName VARCHAR(255),
+    Age INT,
+    CHECK (Age >= 18)
+);
+```
+Ensures `Age` values meet specified conditions.
+
+### Using Default Values
+```sql
+CREATE TABLE Persons (
+    ID INT NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    FirstName VARCHAR(255),
+    Age INT,
+    City VARCHAR(255) DEFAULT 'Sandnes'
+);
+```
+Provides a default value for `City` column if not specified.
+
+### Updating Data
+```sql
+UPDATE school_data.student_data SET age = 16 WHERE student_roll_no = 101;
+SELECT * FROM school_data.student_data;
+```
+Updates specific rows and retrieves the table data.
+
+### Deleting Data
+```sql
+SET sql_safe_updates = 0;
+DELETE FROM school_data.student_data;
+INSERT INTO school_data.student_data VALUES (102, "jon", 12);
+INSERT INTO school_data.student_data VALUES (101, "adam", 13);
+
+-- Delete specific row
+DELETE FROM school_data.student_data WHERE student_roll_no = 102;
+SELECT * FROM school_data.student_data;
+SHOW VARIABLES LIKE "sql_safe_updates";
+SET sql_safe_updates = 1;
+SELECT * FROM school_data.student_data WHERE student_roll_no BETWEEN 101 AND 102;
+```
+Removes all or specific rows from the table.
+
+### Altering and Inserting into Specific Columns
+```sql
+ALTER TABLE employee_details DROP COLUMN sales; -- Deletes a column
+INSERT INTO employee_details(department_name) VALUES ("sales"); -- Inserts data into specific column
 ```
 
-This statement groups the rows based on `column1` and applies the aggregate function to each group.
-
-## Subqueries and Views
-
-SQL subqueries provide a way to nest one query inside another. They can be used to create more complex queries and retrieve data from multiple tables simultaneously.
-
-Views, on the other hand, are virtual tables based on the result of a query. They simplify data retrieval by providing a predefined query that can be treated as a table.
-
-### Subqueries
-
-A subquery is a query embedded within another query. It can be used in the WHERE or FROM clause of the outer query to retrieve data based on intermediate results. Subqueries allow you to break down complex problems into smaller, more manageable parts.
-
-### Views
-
-Views are saved queries that act as virtual tables. They can be created using a SELECT statement and provide an abstraction layer over the underlying tables. Views simplify data retrieval by encapsulating complex queries into a single, reusable entity.
-
-*This section has covered the concept of relationships in databases, JOIN statements to retrieve related data, aggregation functions and the GROUP BY clause for summarizing data, and the usage of subqueries and views to handle complex queries.*
-
-*By understanding these concepts, you'll be able to work with more advanced SQL queries, manipulate data effectively, and gain valuable insights from your databases.*
-
-## Indexing and Performance Optimization
-
-Indexes play a crucial role in enhancing the performance of SQL queries by improving data retrieval speed. Understanding how to create and use indexes effectively is essential for optimizing database performance.
-
-### Importance of Indexes
-
-Indexes are data structures that provide quick access to specific data within a table. They enable the database engine to locate data faster by reducing the number of rows that need to be scanned. Indexes are created on one or more columns and significantly enhance query performance, especially for large tables.
-
-### Creating Indexes
-
-To create an index, you need to identify the columns that are frequently used in search conditions or join operations. Using the `CREATE INDEX` statement, you can specify the index name, the table on which the index will be created, and the column(s) to be indexed. For example:
-
+### Adding Constraints
 ```sql
-CREATE INDEX idx_name ON table_name (column1, column2);
+ALTER TABLE employee_details ADD CONSTRAINT t PRIMARY KEY(employee_id);
+ALTER TABLE employee_details MODIFY employee_id INT PRIMARY KEY;
 ```
+Adds or modifies a primary key constraint to the `employee_id` column.
 
-Creating indexes on appropriate columns can significantly speed up query execution.
+### String Functions
+```sql
+SELECT SUBSTR('disha', 1, 2);
+SELECT LEFT('disha', 2) AS customer;
+SELECT UPPER('disha') AS customer;
+SELECT LOWER('Disha') AS customer;
+SELECT REVERSE('Disha');
+```
+Performs various string operations such as substring extraction, case conversion, and reversing.
 
-### Using Indexes Effectively
+#### Concatenation
+```sql
+SET sql_mode = 'ANSI'; -- Enables "pipes_as_concat"
+SELECT CONCAT(first_name, last_name) AS customer FROM sakila.customer;
+SELECT first_name || ' ' || last_name AS customer FROM sakila.customer;
+```
+Concatenates strings using different methods.
 
-While indexes boost performance, they also come with some overhead. It's essential to strike a balance between the number of indexes and their impact on data modification operations (inserts, updates, and deletes). Remember to update indexes when modifying data to ensure their accuracy.
+#### Counting Characters in a String
+```sql
+SELECT CHARACTER_LENGTH('abhishek') AS name;
+```
+Counts the number of characters in a string.
 
-Regularly analyze query performance, monitor index usage, and consider adding or removing indexes based on actual usage patterns. Proper indexing strategy is crucial for optimizing database performance.
+#### Regular Expressions
+```sql
+SELECT * FROM sakila.actor WHERE first_name REGEXP ('p*'); -- 0 or more matches
+SELECT * FROM sakila.actor WHERE first_name REGEXP ('p+'); -- 1 or more matches
+SELECT * FROM sakila.actor WHERE first_name REGEXP ('p?'); -- 0 or 1 match
+SELECT * FROM sakila.actor WHERE first_name REGEXP ('^p'); -- Matches first character
+```
+Filters data based on regular expression patterns.
 
-## Transactions and Concurrency Control
+### Date Functions
+```sql
+SELECT CURDATE();
+SELECT MONTH();
+SELECT DATE();
+SELECT MONTHNAME();
+SELECT ADDDATE('2008-8-24 15:25:52', INTERVAL '8:20' HOUR_MINUTE);
+```
+Performs various date operations such as fetching current date or adding intervals.
 
-In a multi-user database environment, transactions ensure data integrity and maintain consistency. Understanding transactions and concurrency control is vital when dealing with concurrent database operations.
+### Mathematical Functions
+```sql
+SELECT FLOOR(12.30);
+SELECT CEIL(12.30);
+SELECT PI();
+SELECT POW(5, 2);
+SELECT ROUND(2.3443, 1);
+```
+Executes mathematical operations like rounding, exponentiation, and more.
 
-### Transactions and ACID Properties
+### Information Functions
+```sql
+SELECT CONNECTION_ID();
+SELECT CURRENT_USER();
+SELECT DATABASE();
+SELECT VERSION();
+```
+Retrieves database-related information.
 
-A transaction is a logical unit of work that consists of one or more database operations. Transactions adhere to the ACID properties:
+### Aggregate Functions
+```sql
+SELECT COUNT(*) FROM sakila.film;
+SELECT AVG(rental_duration) AS 'Average' FROM sakila.film;
+SELECT MIN(rental_duration) AS 'Minimum' FROM sakila.film;
+SELECT MAX(rental_duration) AS 'Maximum' FROM sakila.film;
+SELECT SUM(rental_duration) AS 'Sum' FROM sakila.film;
+```
+Performs aggregation operations on data.
 
-- **Atomicity**: A transaction is treated as a single, indivisible unit of work. Either all operations within a transaction are committed, or none of them are.
-- **Consistency**: Transactions bring the database from one consistent state to another consistent state. The integrity of the data is maintained.
-- **Isolation**: Concurrently executing transactions are isolated from each other, ensuring that the intermediate states of transactions are not visible to other transactions.
-- **Durability**: Once a transaction is committed, its changes are permanently saved and can survive system failures.
+### Order By Clause
+```sql
+SELECT rental_id, amount, payment_date FROM sakila.payment ORDER BY amount DESC;
+```
+Sorts data in descending order of `amount`.
 
-Understanding the ACID properties helps ensure data integrity and reliability in database operations.
+## Grouping Data
+```sql
+SELECT SUM(amount) AS 'amount', customer_id 
+FROM sakila.payment 
+GROUP BY customer_id 
+ORDER BY amount;
+```
+Groups data by `customer_id` and calculates the total `amount`, then sorts the results by `amount`.
 
-### Isolation Levels
+## Having Clause
+```sql
+SELECT SUM(amount) AS 'amount', customer_id 
+FROM sakila.payment 
+GROUP BY customer_id 
+HAVING amount > 100 
+ORDER BY amount;
+```
+Filters grouped data to include only customers with a total `amount` greater than 100, then sorts the results.
 
-Isolation levels define the degree of isolation and concurrency control in database transactions. They determine how transactions interact with each other and impact data consistency.
+## Inner Join
+```sql
+SELECT * 
+FROM employee 
+INNER JOIN dept 
+ON employee.e_id = dept.e_id;
+```
+Combines rows from `employee` and `dept` tables based on matching `e_id` values.
 
-Common isolation levels include:
+## Creating Views
+```sql
+CREATE VIEW customer_detailsbbbb AS 
+SELECT customer_id, first_name, last_name, email 
+FROM customer 
+GROUP BY customer_id;
 
-- **Read Uncommitted**: Allows dirty reads and has the lowest level of isolation.
-- **Read Committed**: Prevents dirty reads, but non-repeatable reads and phantom reads are possible.
-- **Repeatable Read**: Guarantees consistent reads within a transaction, but phantom reads may occur.
-- **Serializable**: Provides the highest level of isolation, ensuring that transactions are executed as if they were processed sequentially.
+SELECT * FROM customer_details;
+```
+Creates a view named `customer_detailsbbbb` to display grouped customer details.
 
-Understanding isolation levels helps manage concurrent transactions and maintain data consistency.
+## Subqueries
 
-## Advanced Topics
+### Scalar Subqueries
+```sql
+SELECT language 
+FROM CountryLanguage 
+WHERE countrycode = (SELECT code FROM country WHERE name = 'Finland');
 
-SQL offers advanced features that extend its capabilities beyond simple queries. Exploring these advanced topics opens up new possibilities for efficient data management and automation.
+SELECT name, 
+    (SELECT COUNT(*) FROM city WHERE countrycode = code) AS cities,
+    (SELECT COUNT(*) FROM CountryLanguage WHERE countrycode = code) AS languages 
+FROM Country;
 
-### Stored Procedures
+SELECT AVG(cnt_sum) 
+FROM (
+    SELECT continent, SUM(population) AS cnt_sum 
+    FROM Country 
+    GROUP BY continent
+) t;
+```
+Performs subqueries to fetch specific values, such as languages spoken in Finland, city and language counts for each country, and average population sums by continent.
 
-Stored procedures are precompiled SQL code that can be stored and executed on the database server. They encapsulate a set of SQL statements as a single unit, enabling code reuse, improved performance, and enhanced security. Stored procedures can accept input parameters and return output values.
+### Using `WHERE IN`
+```sql
+SELECT * 
+FROM city 
+WHERE countrycode IN (SELECT code FROM country WHERE continent = 'Asia');
 
-### Triggers
+SELECT * 
+FROM city 
+WHERE (countrycode, name) IN (SELECT code, name FROM country WHERE continent = 'Asia');
+```
+Filters rows from `city` where `countrycode` or `(countrycode, name)` matches values from a subquery.
 
-Triggers are special SQL constructs that automatically execute in response to specific database events, such as INSERT, UPDATE,
+### Using `WHERE EXISTS`
+```sql
+SELECT * 
+FROM city 
+WHERE EXISTS (
+    SELECT capital 
+    FROM country 
+    WHERE country.capital = city.id
+);
+```
+Filters rows where a related record exists in another table.
 
- or DELETE operations on tables. Triggers enable you to enforce business rules, maintain data integrity, and automate complex database actions.
+### Using `ALL`, `ANY`, and `SOME`
+```sql
+SELECT 'finland' = ANY (SELECT name FROM world.country);
 
-### User-Defined Functions
+SELECT * 
+FROM country 
+WHERE population > ALL (SELECT population FROM city);
 
-User-defined functions (UDFs) allow you to extend SQL by creating custom functions. UDFs encapsulate specific logic and can be used within SQL statements just like built-in functions. They provide a way to modularize complex calculations or data transformations, improving code readability and reusability.
+SELECT * 
+FROM country 
+WHERE population > ANY (SELECT population FROM city);
 
-Exploring these advanced topics will expand your SQL skills and empower you to build more sophisticated database solutions.
+SELECT * 
+FROM country 
+WHERE population = SOME (SELECT population FROM city);
+```
+Compares values with subqueries using `ALL`, `ANY`, or `SOME` to check conditions across multiple rows.
 
-*Keep learning, practicing, and experimenting with SQL to become proficient in handling diverse data scenarios.*
+## Pivot Table
+```sql
+SELECT 
+    language,
+    SUM(CASE
+        WHEN isofficial = 'T' THEN percentage
+        ELSE 0
+    END) AS 'off%',
+    SUM(CASE
+        WHEN isofficial = 'F' THEN percentage
+        ELSE 0
+    END) AS 'unoff%'
+FROM
+    countrylanguage 
+GROUP BY language;
+```
+Creates a pivot table to calculate the percentage of official and unofficial languages grouped by language.
 
-## Best Practices
+## Partitioning
+### With Partition
+```sql
+SELECT id, name, countrycode, district, population,
+    ROW_NUMBER() OVER (PARTITION BY countrycode) AS rownumber 
+FROM city;
+```
+Applies row numbering within each `countrycode` group.
 
-Writing efficient and maintainable SQL code is essential for building robust and scalable database applications. Here are some best practices to follow:
+### Without Partition
+```sql
+SELECT id, name, countrycode, district, population,
+    ROW_NUMBER() OVER () AS rownumber 
+FROM city;
+```
+Applies row numbering across the entire table without grouping.
 
-### Naming Conventions
+## Window Functions
+### Rank and Dense Rank
+```sql
+SELECT canditate_no, physics, chem, maths,
+    RANK() OVER (ORDER BY maths DESC) AS maths_rank,
+    DENSE_RANK() OVER (ORDER BY maths DESC) AS dense_maths_rank 
+FROM results;
+```
+Calculates rank and dense rank based on descending `maths` scores.
 
-Use descriptive names for tables, columns, and other database objects. Choose names that accurately represent the data they store or the purpose they serve. Consistent and meaningful naming conventions improve code readability and maintainability.
+### Lag and Lead
+#### Lag
+```sql
+SELECT id, name, countrycode, district, population,
+    LAG(population) OVER (PARTITION BY countrycode) AS lag_population 
+FROM city;
+```
+Fetches the previous population value within each `countrycode` group.
 
-### Code Formatting
+#### Lead
+```sql
+SELECT id, name, countrycode, district, population,
+    MIN(population) OVER (PARTITION BY countrycode) AS min_population,
+    MAX(population) OVER (PARTITION BY countrycode) AS max_population,
+    SUM(population) OVER (PARTITION BY countrycode) AS sum_population,
+    AVG(population) OVER (PARTITION BY countrycode) AS average_population 
+FROM city;
+```
+Calculates minimum, maximum, sum, and average population within each `countrycode` group.
 
-Consistent code formatting enhances readability and makes it easier to understand SQL statements. Indentation, proper spacing, and line breaks improve code structure and organization. Consider using a code formatter or adhering to a style guide for consistent formatting.
+## Triggers
+### Insert Trigger
+```sql
+CREATE TRIGGER oninsert 
+BEFORE INSERT ON student 
+FOR EACH ROW 
+SET 
+    NEW.firstname = UPPER(NEW.firstname),
+    NEW.lastname = UPPER(NEW.lastname),
+    NEW.hometown = UPPER(NEW.hometown);
+```
+Modifies inserted data by converting specific fields to uppercase.
 
-### Error Handling
+### Update Trigger
+```sql
+CREATE TRIGGER onupdate 
+BEFORE UPDATE ON student 
+FOR EACH ROW 
+SET 
+    NEW.firstname = UPPER(NEW.firstname),
+    NEW.lastname = UPPER(NEW.lastname),
+    NEW.hometown = UPPER(NEW.hometown);
+```
+Ensures updated data fields are converted to uppercase.
 
-Implement error handling mechanisms in your SQL code to gracefully handle unexpected scenarios. Use structured error handling constructs provided by your database system, such as TRY-CATCH blocks, to catch and handle errors effectively. Proper error handling improves code reliability and maintainability.
+### Delete Trigger
+```sql
+DELIMITER $$
 
-## Recommended Learning Resources
+CREATE TRIGGER teacherresigns
+BEFORE DELETE
+ON Teachers 
+FOR EACH ROW
+BEGIN
+    INSERT INTO PrevTeachers (EmpNo, FirstName, LastName)
+    VALUES (OLD.EmpNo, OLD.FirstName, OLD.LastName);
+END$$
 
-To further enhance your SQL skills, explore these recommended learning resources:
+DELIMITER;
+```
+Inserts deleted teacher records into the `PrevTeachers` table for record-keeping.
 
-- **Books**: "SQL Cookbook" by Anthony Molinaro, "SQL Queries for Mere Mortals" by John Viescas and Michael J. Hernandez.
-- **Online Tutorials**: SQL tutorials on websites like W3Schools, SQLZoo, and Mode Analytics.
-- **Video Courses**: Online platforms like Udemy, Coursera, and Pluralsight offer SQL courses for beginners.
-- **Interactive Websites**: SQLFiddle, HackerRank, and LeetCode provide interactive SQL challenges and exercises.
 
-These resources provide comprehensive explanations, hands-on practice, and real-world examples to deepen your SQL knowledge.
+
 
