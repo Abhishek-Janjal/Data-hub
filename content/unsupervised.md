@@ -16,7 +16,7 @@ $$J=\sum_{i=1}^{K} \sum_{x \in C_i} ||x - \mu_i||^2$$
 ### Spectral Clustering
 
 **Mathematical Foundation:**
-1. **Graph Representation**: Represent data points as a graph where vertices are data points and edges represent similarities. The affinity matrix $$ A $$ captures these relationships.
+1. **Graph Representation**: Represent data points as a graph where vertices are data points and edges represent similarities. The affinity matrix $$A$$ captures these relationships.
 
 2. **Laplacian Matrix**: Compute the Laplacian matrix $$L = D - A$$, where $$D$$ is the degree matrix (a diagonal matrix where each entry represents the sum of weights for edges connected to that vertex).
 
