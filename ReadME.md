@@ -7,5 +7,5 @@
 5. [Statistics](content/statistics.md)
 6. Machine Learning
    - [Supervised Learning](content/mloverview.md)
-   - [UnSupervised Learning](content/supervised.md)
+   - [UnSupervised Learning](content/unsupervised.md)
 7. [Deep Learning]()
