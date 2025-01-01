@@ -271,10 +271,10 @@ $$ [ y_i (w \cdot x_i + b) \geq 1 \quad \forall_i ] $$
 
 Where:
 
-- $$ ( y_i  ) $$ is the class label for the training sample $$ ( x_i ) $$
+- $$( y_i  )$$ is the class label for the training sample $$( x_i )$$
 - The constraint (either +1 or -1)ensures that the samples are correctly classified and at least a distance of 1 from the decision boundary.
 
-Kernel Trick: For non-linear SVC, a kernel function $$ ( K(x_i,x_j) )  $$ is used to transform the input space into a higher-dimensional space. The decision function becomes:
+Kernel Trick: For non-linear SVC, a kernel function $$( K(x_i,x_j) )$$ is used to transform the input space into a higher-dimensional space. The decision function becomes:
 
 $$[ f(x) = ∑_{i=1}^{N} α_i y_i K(x_i,x) + b ]$$
 
