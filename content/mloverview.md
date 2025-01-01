@@ -279,4 +279,4 @@ Kernel Trick: For non-linear SVC, a kernel function $$( K(x_i,x_j) )$$ is used t
 $$[ f(x) = ∑_{i=1}^{N} α_i y_i K(x_i,x) + b ]$$
 
 ___
-# [NEXT](content/supervised.md)
+# [NEXT](supervised.md)
