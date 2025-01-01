@@ -42,7 +42,7 @@ $$J=\sum_{i=1}^{K} \sum_{x \in C_i} ||x - \mu_i||^2$$
    - Iteratively merge the two closest clusters based on the chosen linkage criterion until a stopping condition is met (e.g., a specified number of clusters).
 
 ### DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
-
+![Alt text](image/1611735338466.gif)
 **Mathematical Foundation:**
 1. **Core Points, Border Points, and Noise**:
    - A point $$p$$ is a core point if it has at least $$MinPts$$ neighbors within a radius $$\epsilon$$.
