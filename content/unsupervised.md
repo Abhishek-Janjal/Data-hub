@@ -64,4 +64,4 @@ $$J=\sum_{i=1}^{K} \sum_{x \in C_i} ||x - \mu_i||^2$$
        $$|N_\epsilon(p)| \geq MinPts$$
 
 ---
-# ![next](unsupercode.ipynb)
+# [next](unsupercode.ipynb)
