@@ -2,10 +2,10 @@
 
 **Mathematical Foundation:**
 1. **Objective Function**: The goal of K-Means is to minimize the within-cluster sum of squares (WCSS). This can be expressed mathematically as:
-   $$J = \sum_{i=1}^{K} \sum_{x \in C_i} ||x - \mu_i||^2$$
-   where $$K$$ is the number of clusters, $$C_i$$ is the set of points in cluster $$ i $$, and $$ \mu_i $$ is the centroid of cluster $$i$$.
+$$J=\sum_{i=1}^{K} \sum_{x \in C_i} ||x - \mu_i||^2$$
+   where $$K$$ is the number of clusters, $$C_i$$ is the set of points in cluster $$i$$, and $$\mu_i$$ is the centroid of cluster $$i$$.
 
-2. **Steps**:
+3. **Steps**:
    - **Initialization**: Randomly select $$ K $$ initial centroids.
    - **Assignment Step**: Assign each data point to the nearest centroid:
      $$C_i = \{x_j : ||x_j - \mu_i||^2 < ||x_j - \mu_k||^2, \forall k \neq i\}$$
