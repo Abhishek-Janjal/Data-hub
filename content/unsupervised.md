@@ -16,6 +16,8 @@ $$J=\sum_{i=1}^{K} \sum_{x \in C_i} ||x - \mu_i||^2$$
    - Repeat until convergence.
 
 ### Spectral Clustering
+![Alt text](image/spectral.gif)
+
 
 **Mathematical Foundation:**
 1. **Graph Representation**: Represent data points as a graph where vertices are data points and edges represent similarities. The affinity matrix $$A$$ captures these relationships.
