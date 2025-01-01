@@ -1,4 +1,6 @@
 ### K-Means Clustering
+![Alt text](image/K-means_convergence.gif)
+
 
 **Mathematical Foundation:**
 1. **Objective Function**: The goal of K-Means is to minimize the within-cluster sum of squares (WCSS). This can be expressed mathematically as:
