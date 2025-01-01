@@ -27,6 +27,7 @@ $$J=\sum_{i=1}^{K} \sum_{x \in C_i} ||x - \mu_i||^2$$
 4. **Clustering**: Apply K-Means to these eigenvectors to identify clusters.
 
 ### Agglomerative Clustering
+![Alt text](image/animation1.gif)
 
 **Mathematical Foundation:**
 1. **Distance Measures**: Define a distance metric (e.g., Euclidean distance) to quantify how similar or dissimilar two clusters are.
