@@ -42,7 +42,7 @@ $$J=\sum_{i=1}^{K} \sum_{x \in C_i} ||x - \mu_i||^2$$
 
 **Mathematical Foundation:**
 1. **Core Points, Border Points, and Noise**:
-   - A point $$p$$ is a core point if it has at least $$ MinPts $$ neighbors within a radius $$\epsilon$$.
+   - A point $$p$$ is a core point if it has at least $$MinPts$$ neighbors within a radius $$\epsilon$$.
    - A border point is within $$\epsilon$$ of a core point but does not have enough neighbors to be a core point.
    - Noise points are neither core nor border points.
 
