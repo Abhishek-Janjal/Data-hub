@@ -8,8 +8,4 @@
 6. Machine Learning
    - [Supervised Learning](content/mloverview.md)
    - [UnSupervised Learning](content/unsupervised.md)
-<<<<<<< HEAD
-7. [Deep Learning](content/TensorFlow_Basics.ipynb)
-=======
 7. [Deep Learning](content/deep.ipynb)
->>>>>>> 841bd4a (new update)
