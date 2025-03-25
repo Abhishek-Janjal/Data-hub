@@ -6,7 +6,7 @@
 4. [Matplotlib & Seaborn](content/visualization.ipynb)
 5. [Statistics](content/statistics.md)
 6. Machine Learning
-   - [Supervised Learning](content/mloverview.md)
+   - [Supervised Learning](content/supervised.md)
    - [UnSupervised Learning](content/unsupervised.md)
 7. [Deep Learning](content/TensorFlow_Basics.ipynb)
 
